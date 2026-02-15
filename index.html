@@ -14,11 +14,16 @@
       font-family: 'Cairo', sans-serif;
       direction: rtl;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     }
 
-    /* ===== الظرف ===== */
+    /* الظرف */
     .envelope {
       position: relative;
       width: 250px;
@@ -31,7 +36,6 @@
       cursor: pointer;
       box-shadow: 0 8px 16px rgba(0,0,0,0.3);
       transition: transform 0.5s ease-in-out;
-      margin: 40px auto 20px;
     }
 
     .envelope::before {
@@ -66,16 +70,15 @@
       color: white;
     }
 
-    /* ===== عند الفتح ===== */
+    /* عند الفتح */
     body.open .envelope {
       transform: scale(0);
-      height: 0;
-      overflow: hidden;
     }
 
     .container {
       display: none;
-      padding: 10px 10px 40px;
+      padding: 15px;
+      max-width: 100%;
     }
 
     body.open .container {
@@ -88,7 +91,29 @@
       to { opacity: 1; }
     }
 
-    /* ===== الكارد ===== */
+    /* العنوان */
+    .heart-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .heart-title {
+      font-size: 1.3em;
+      color: #e91e63;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.95);
+      font-weight: bold;
+      border: 3px solid #e91e63;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      max-width: 90%;
+      line-height: 1.4;
+      white-space: normal;
+      text-align: center;
+    }
+
+    /* الكارد */
     .card {
       max-width: 350px;
       margin: 0 auto;
@@ -105,6 +130,7 @@
       width: 100%;
       max-height: 280px;
       object-fit: cover;
+      display: block;
     }
 
     .text-content {
@@ -113,6 +139,7 @@
       color: #444;
     }
 
+    /* ترتيب الإنجليزي */
     .english {
       direction: ltr;
       text-align: left;
@@ -121,15 +148,6 @@
     .text-content p {
       margin: 0;
       line-height: 1.6;
-    }
-
-    /* ===== عنوان داخل الرسالة ===== */
-    .inside-title {
-      font-size: 1.4em;
-      font-weight: bold;
-      color: #e91e63;
-      text-align: center;
-      margin-bottom: 12px;
     }
 
   </style>
@@ -145,18 +163,23 @@
 
   <!-- المحتوى -->
   <div class="container">
+    <div class="heart-container">
+      <div class="heart-title">Happy Valentine’s Day ❤️</div>
+    </div>
+
     <div class="card">
       <img src="your-image.jpg" alt="Romantic Image">
 
       <div class="text-content english">
-
-        <div class="inside-title">Happy Valentine’s Day ❤️</div>
-
         <p>
           I would love to start things off by saying…<br><br>
+
           Happy Valentine’s Day my love, I’m really lucky to celebrate yet another Valentine’s Day with you.<br><br>
+
           In our journey, I’ve experienced love I never thought existed before, comfort I never felt before, and with time the love I have for you just keeps growing stronger and stronger.<br><br>
-          I could write an entire book explaining how much I love you and it still wouldn’t be enough.<br><br>
+
+          I could write an entire book explaining how much I love you and it still wouldn’t be enough. You mean the absolute world to me, and I don’t know what I would do without you.<br><br>
+
           With love,<br>
           M.
         </p>
@@ -172,8 +195,8 @@
   <script>
     document.getElementById("envelope").addEventListener("click", function () {
       document.body.classList.add("open");
+      document.body.style.overflow = "auto";
       document.getElementById("audio").play();
-      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
 
