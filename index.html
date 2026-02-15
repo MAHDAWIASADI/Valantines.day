@@ -23,12 +23,13 @@
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     }
 
-    /* بعد الفتح يرجع طبيعي بدون أي فراغ */
+    /* بعد الفتح يصير فيه مسافة فوق وتحت */
     body.open {
       height: auto;
       overflow-y: auto;
       display: block;
-      padding: 0;
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
 
     /* الظرف */
@@ -103,14 +104,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* العنوان بدون أي مسافات */
+    /* العنوان */
     .heart-container {
-      margin: 0;
-      padding: 0;
+      margin-bottom: 10px;
     }
 
     .heart-title {
-      margin: 0;
       font-size: 1.3em;
       color: #e91e63;
       padding: 10px 15px;
@@ -125,7 +124,7 @@
     /* الكارد */
     .card {
       max-width: 350px;
-      margin: 10px auto 0;
+      margin: 15px auto 0;
       border: 3px solid #e91e63;
       border-radius: 15px;
       overflow: hidden;
