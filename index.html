@@ -18,25 +18,6 @@
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     }
 
-    /* ===== العنوان (فوق) ===== */
-    .heart-container {
-      display: flex;
-      justify-content: center;
-      margin: 10px 0 0; /* بدون فراغ */
-    }
-
-    .heart-title {
-      font-size: 1.3em;
-      color: #e91e63;
-      padding: 10px 15px;
-      background: rgba(255, 255, 255, 0.95);
-      font-weight: bold;
-      border: 3px solid #e91e63;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      max-width: 90%;
-    }
-
     /* ===== الظرف ===== */
     .envelope {
       position: relative;
@@ -50,7 +31,7 @@
       cursor: pointer;
       box-shadow: 0 8px 16px rgba(0,0,0,0.3);
       transition: transform 0.5s ease-in-out;
-      margin: 12vh auto 20px; /* بالنص */
+      margin: 40px auto 20px;
     }
 
     .envelope::before {
@@ -88,7 +69,8 @@
     /* ===== عند الفتح ===== */
     body.open .envelope {
       transform: scale(0);
-      margin: 0;
+      height: 0;
+      overflow: hidden;
     }
 
     .container {
@@ -140,15 +122,20 @@
       margin: 0;
       line-height: 1.6;
     }
+
+    /* ===== عنوان داخل الرسالة ===== */
+    .inside-title {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #e91e63;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
   </style>
 </head>
 
 <body>
-
-  <!-- العنوان -->
-  <div class="heart-container">
-    <div class="heart-title">Happy Valentine’s Day ❤️</div>
-  </div>
 
   <!-- الظرف -->
   <div class="envelope" id="envelope">
@@ -162,6 +149,9 @@
       <img src="your-image.jpg" alt="Romantic Image">
 
       <div class="text-content english">
+
+        <div class="inside-title">Happy Valentine’s Day ❤️</div>
+
         <p>
           I would love to start things off by saying…<br><br>
           Happy Valentine’s Day my love, I’m really lucky to celebrate yet another Valentine’s Day with you.<br><br>
