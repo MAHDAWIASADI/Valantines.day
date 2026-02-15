@@ -1,137 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>YumeMart | Products</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Valentine's Day</title>
 
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
-    body{background:#f7f7f7;color:#333;}
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
-    /* HEADER SLIDER STYLE */
-    header{
-      position:relative;
-      width:100%;
-      height:60vh;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:white;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      text-align: center;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     }
 
-    header img.logo{
-      width:140px;
-      margin-bottom:20px;
+    /* الظرف */
+    .envelope {
+      position: relative;
+      width: 250px;
+      height: 180px;
+      background: #e91e63;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      transition: transform 0.5s ease-in-out;
     }
 
-    header h1{
-      font-size:3rem;
-      margin-bottom:10px;
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      width: 0;
+      height: 0;
+      border-left: 125px solid transparent;
+      border-right: 125px solid transparent;
+      border-bottom: 60px solid #e91e63;
     }
 
-    header p{
-      font-size:1.2rem;
-      max-width:900px;
-      margin:auto;
-      line-height:1.5;
+    .envelope .heart {
+      font-size: 30px;
+      color: white;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      animation: pulse 1.5s infinite;
     }
 
-    .header-bg{
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      z-index:-1;
-      filter:brightness(0.55);
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
     }
 
-    /* PRODUCTS GRID */
-    section{
-      max-width:1200px;
-      margin:auto;
-      padding:4rem 2rem;
+    .envelope .message {
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
     }
 
-    h2.section-title{
-      text-align:center;
-      font-size:2.4rem;
-      color:#0b5d4a;
-      margin-bottom:2rem;
+    /* عند الفتح */
+    body.open .envelope {
+      transform: scale(0);
     }
 
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:2rem;
+    .container {
+      display: none;
+      padding: 15px;
+      max-width: 100%;
     }
 
-    .product{
-      background:#fff;
-      padding:2rem;
-      border-radius:10px;
-      text-align:center;
-      box-shadow:0 4px 10px rgba(0,0,0,.1);
-      transition:0.3s;
+    body.open .container {
+      display: block;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    .product:hover{
-      transform:translateY(-5px);
-      box-shadow:0 8px 20px rgba(0,0,0,.15);
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    .product h4{color:#0b5d4a;margin-bottom:.5rem;}
-    .product p{font-size:.9rem;}
-
-    /* FOOTER */
-    footer{
-      background:#083c32;
-      color:#fff;
-      text-align:center;
-      padding:2rem;
+    /* العنوان */
+    .heart-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
     }
 
-    footer a{color:#ffd700;}
+    .heart-title {
+      font-size: 1.3em;
+      color: #e91e63;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.95);
+      font-weight: bold;
+      border: 3px solid #e91e63;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      max-width: 90%;
+      line-height: 1.4;
+      white-space: normal;
+      text-align: center;
+    }
+
+    /* الكارد */
+    .card {
+      max-width: 350px;
+      margin: 0 auto;
+      border: 3px solid #e91e63;
+      border-radius: 15px;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .text-content {
+      padding: 15px;
+      font-size: 1.05em;
+      color: #444;
+    }
+
+    /* ترتيب الإنجليزي */
+    .english {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .text-content p {
+      margin: 0;
+      line-height: 1.6;
+    }
+
   </style>
 </head>
+
 <body>
 
-<!-- HEADER / HERO -->
-<header>
-  <img src="logo.png" alt="YumeMart Logo" class="logo">
-  <h1>Our Products</h1>
-  <p>Explore the high-quality industrial fasteners and custom solutions provided by YumeMart & Fasteners Service</p>
-  <img src="slide1.jpg" alt="Products Background" class="header-bg">
-</header>
-
-<!-- PRODUCTS GRID -->
-<section>
-  <h2 class="section-title">Our Product Range</h2>
-  <div class="products">
-    <div class="product"><h4>Hex Bolts</h4><p>Industrial and structural bolts</p></div>
-    <div class="product"><h4>Nuts & Washers</h4><p>Standard & heavy-duty grades</p></div>
-    <div class="product"><h4>Screws</h4><p>Wood, metal & self-tapping</p></div>
-    <div class="product"><h4>Anchors</h4><p>Concrete & chemical anchors</p></div>
-    <div class="product"><h4>Threaded Rods</h4><p>Various sizes & strengths</p></div>
-    <div class="product"><h4>Custom Fasteners</h4><p>Project-based solutions</p></div>
+  <!-- الظرف -->
+  <div class="envelope" id="envelope">
+    <div class="heart">❤️</div>
+    <div class="message">لدي شيء خاص لكِ...</div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <a href="index.html">← Back to Company Page</a><br><br>
-  © 2026 YumeMart & Fasteners Service. All Rights Reserved.
-</footer>
+  <!-- المحتوى -->
+  <div class="container">
+    <div class="heart-container">
+      <div class="heart-title">Happy Valentine’s Day ❤️</div>
+    </div>
+
+    <div class="card">
+      <img src="your-image.jpg" alt="Romantic Image">
+
+      <div class="text-content english">
+        <p>
+          I would love to start things off by saying…<br><br>
+
+          Happy Valentine’s Day my love, I’m really lucky to celebrate yet another Valentine’s Day with you.<br><br>
+
+          In our journey, I’ve experienced love I never thought existed before, comfort I never felt before, and with time the love I have for you just keeps growing stronger and stronger.<br><br>
+
+          I could write an entire book explaining how much I love you and it still wouldn’t be enough. You mean the absolute world to me, and I don’t know what I would do without you.<br><br>
+
+          With love,<br>
+          M.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- الصوت -->
+  <audio id="audio" loop>
+    <source src="your-song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    document.getElementById("envelope").addEventListener("click", function () {
+      document.body.classList.add("open");
+      document.body.style.overflow = "auto";
+      document.getElementById("audio").play();
+    });
+  </script>
 
 </body>
 </html>
