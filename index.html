@@ -14,8 +14,27 @@
       font-family: 'Cairo', sans-serif;
       direction: rtl;
       text-align: center;
-      overflow-x: hidden;       /* يسمح بالسكر */
+      overflow-x: hidden;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    }
+
+    /* ===== العنوان (فوق) ===== */
+    .heart-container {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0 0; /* بدون فراغ */
+    }
+
+    .heart-title {
+      font-size: 1.3em;
+      color: #e91e63;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.95);
+      font-weight: bold;
+      border: 3px solid #e91e63;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      max-width: 90%;
     }
 
     /* ===== الظرف ===== */
@@ -31,7 +50,7 @@
       cursor: pointer;
       box-shadow: 0 8px 16px rgba(0,0,0,0.3);
       transition: transform 0.5s ease-in-out;
-margin: 20vh auto 20px;
+      margin: 12vh auto 20px; /* بالنص */
     }
 
     .envelope::before {
@@ -74,8 +93,7 @@ margin: 20vh auto 20px;
 
     .container {
       display: none;
-      padding: 20px 10px 40px;
-      max-width: 100%;
+      padding: 10px 10px 40px;
     }
 
     body.open .container {
@@ -86,28 +104,6 @@ margin: 20vh auto 20px;
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
-    }
-
-    /* ===== العنوان ===== */
-    .heart-container {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .heart-title {
-      font-size: 1.3em;
-      color: #e91e63;
-      padding: 10px 15px;
-      background: rgba(255, 255, 255, 0.95);
-      font-weight: bold;
-      border: 3px solid #e91e63;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      max-width: 90%;
-      line-height: 1.4;
-      white-space: normal;
-      text-align: center;
     }
 
     /* ===== الكارد ===== */
@@ -127,7 +123,6 @@ margin: 20vh auto 20px;
       width: 100%;
       max-height: 280px;
       object-fit: cover;
-      display: block;
     }
 
     .text-content {
@@ -136,7 +131,6 @@ margin: 20vh auto 20px;
       color: #444;
     }
 
-    /* ترتيب الإنجليزي */
     .english {
       direction: ltr;
       text-align: left;
@@ -151,6 +145,11 @@ margin: 20vh auto 20px;
 
 <body>
 
+  <!-- العنوان -->
+  <div class="heart-container">
+    <div class="heart-title">Happy Valentine’s Day ❤️</div>
+  </div>
+
   <!-- الظرف -->
   <div class="envelope" id="envelope">
     <div class="heart">❤️</div>
@@ -159,23 +158,15 @@ margin: 20vh auto 20px;
 
   <!-- المحتوى -->
   <div class="container">
-    <div class="heart-container">
-      <div class="heart-title">Happy Valentine’s Day ❤️</div>
-    </div>
-
     <div class="card">
       <img src="your-image.jpg" alt="Romantic Image">
 
       <div class="text-content english">
         <p>
           I would love to start things off by saying…<br><br>
-
           Happy Valentine’s Day my love, I’m really lucky to celebrate yet another Valentine’s Day with you.<br><br>
-
           In our journey, I’ve experienced love I never thought existed before, comfort I never felt before, and with time the love I have for you just keeps growing stronger and stronger.<br><br>
-
-          I could write an entire book explaining how much I love you and it still wouldn’t be enough. You mean the absolute world to me, and I don’t know what I would do without you.<br><br>
-
+          I could write an entire book explaining how much I love you and it still wouldn’t be enough.<br><br>
           With love,<br>
           M.
         </p>
