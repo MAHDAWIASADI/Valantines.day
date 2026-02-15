@@ -23,12 +23,12 @@
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     }
 
-    /* بعد الفتح يرجع طبيعي */
+    /* بعد الفتح يرجع طبيعي بدون أي فراغ */
     body.open {
       height: auto;
       overflow-y: auto;
       display: block;
-      padding-top: 20px;
+      padding: 0;
     }
 
     /* الظرف */
@@ -83,32 +83,34 @@
       transform: scale(0);
       opacity: 0;
       pointer-events: none;
+      height: 0;
+      margin: 0;
     }
 
     .container {
       display: none;
-      padding: 15px;
-      max-width: 100%;
+      padding: 0;
+      margin: 0;
     }
 
     body.open .container {
       display: block;
-      animation: fadeIn 1s ease-in-out;
+      animation: fadeIn 0.8s ease-in-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* العنوان */
+    /* العنوان بدون أي مسافات */
     .heart-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
+      margin: 0;
+      padding: 0;
     }
 
     .heart-title {
+      margin: 0;
       font-size: 1.3em;
       color: #e91e63;
       padding: 10px 15px;
@@ -117,15 +119,13 @@
       border: 3px solid #e91e63;
       border-radius: 15px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      max-width: 90%;
-      line-height: 1.4;
-      text-align: center;
+      display: inline-block;
     }
 
     /* الكارد */
     .card {
       max-width: 350px;
-      margin: 0 auto;
+      margin: 10px auto 0;
       border: 3px solid #e91e63;
       border-radius: 15px;
       overflow: hidden;
@@ -172,7 +172,7 @@
   <!-- المحتوى -->
   <div class="container">
     <div class="heart-container">
-      <div class="heart-title">Happy Valentine’s Day ❤️</div>
+      <div class="heart-title">❤️ Happy Valentine’s Day</div>
     </div>
 
     <div class="card">
@@ -195,7 +195,6 @@
     </div>
   </div>
 
-  <!-- الصوت -->
   <audio id="audio" loop>
     <source src="your-song.mp3" type="audio/mpeg">
   </audio>
