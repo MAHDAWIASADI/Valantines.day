@@ -14,16 +14,11 @@
       font-family: 'Cairo', sans-serif;
       direction: rtl;
       text-align: center;
-      overflow: hidden;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      overflow-x: hidden;       /* يسمح بالسكر */
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     }
 
-    /* الظرف */
+    /* ===== الظرف ===== */
     .envelope {
       position: relative;
       width: 250px;
@@ -36,6 +31,7 @@
       cursor: pointer;
       box-shadow: 0 8px 16px rgba(0,0,0,0.3);
       transition: transform 0.5s ease-in-out;
+      margin: 40vh auto 0;   /* في النص عند الفتح */
     }
 
     .envelope::before {
@@ -70,14 +66,15 @@
       color: white;
     }
 
-    /* عند الفتح */
+    /* ===== عند الفتح ===== */
     body.open .envelope {
       transform: scale(0);
+      margin: 0;
     }
 
     .container {
       display: none;
-      padding: 15px;
+      padding: 20px 10px 40px;
       max-width: 100%;
     }
 
@@ -91,11 +88,11 @@
       to { opacity: 1; }
     }
 
-    /* العنوان */
+    /* ===== العنوان ===== */
     .heart-container {
       display: flex;
       justify-content: center;
-      margin-bottom: 20px;
+      margin: 20px 0;
     }
 
     .heart-title {
@@ -113,7 +110,7 @@
       text-align: center;
     }
 
-    /* الكارد */
+    /* ===== الكارد ===== */
     .card {
       max-width: 350px;
       margin: 0 auto;
@@ -149,7 +146,6 @@
       margin: 0;
       line-height: 1.6;
     }
-
   </style>
 </head>
 
@@ -195,8 +191,8 @@
   <script>
     document.getElementById("envelope").addEventListener("click", function () {
       document.body.classList.add("open");
-      document.body.style.overflow = "auto";
       document.getElementById("audio").play();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
 
